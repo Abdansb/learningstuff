@@ -3,6 +3,7 @@
 import csv
 import datetime
 import requests
+from concurrent import futures
 
 FILE_URL = "https://storage.googleapis.com/gwg-content/gic215/employees-with-date.csv"
 
@@ -89,8 +90,9 @@ def list_newer(start_date):
 
 
 def main():
+    executor = futures.ProcessPoolExecutor()
     start_date = get_start_date()
-    list_newer(start_date)
+    executor.submit(list_newer, start_date)
 
 
 if __name__ == "__main__":

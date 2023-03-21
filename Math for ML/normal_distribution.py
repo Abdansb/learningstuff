@@ -1,8 +1,9 @@
 #!/usr/bin/env python3
 
 import numpy as np
-from scipy.stats import norm
 import matplotlib.pyplot as plt
+from scipy.stats import norm
+
 
 # Random Generation of 1000 independent Normal samples
 mu = 0
