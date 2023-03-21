@@ -1,10 +1,12 @@
 #!/usr/bin/env python3
 
+import time
 import numpy as np
 import matplotlib.pyplot as plt
 from scipy.stats import norm
+from concurrent import futures
 
-
+st = time.time()
 # Random Generation of 1000 independent Normal samples
 mu = 0
 sigma = 1
@@ -21,4 +23,9 @@ plt.plot(x_values,y_values, color = 'y',linewidth = 2.5,label = 'Population Dist
 plt.title("Randomly generating 1000 obs from Normal distribution mu = 0 sigma = 1")
 plt.ylabel("Probability")
 plt.legend()
-plt.show()
+
+end = time.time()
+elapsed = end - st
+print('waktu run: ', elapsed, 'detik')
+#plt.show()
+futures.ThreadPoolExecutor().submit(plt.show())
